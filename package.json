@@ -1,11 +1,11 @@
 {
-  "name": "simply_chocolate",
+  "name": "js_training",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/js-training/",
+    "build": "vite build --base=/js_training/",
     "preview": "vite preview"
   },
   "devDependencies": {
