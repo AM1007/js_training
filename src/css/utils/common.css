@@ -1,0 +1,17 @@
+.first-body {
+  background-color: gray;
+}
+
+.second-body {
+  background-color: rgb(198, 198, 198);
+}
+
+.main__list-item {
+  font-size: 30px;
+  color: whitesmoke;
+}
+
+.main__list-item:hover,
+.main__list-item:focus {
+  color: bisque;
+}

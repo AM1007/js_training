@@ -1,2 +1,6 @@
 /* Utils */
 @import url('./utils/reset.css');
+@import url('./utils/common.css');
+
+/* Partials */
+@import url('./partials/lecture1.css');
