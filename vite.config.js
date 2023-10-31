@@ -4,21 +4,33 @@ import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
 export default defineConfig(({ command }) => {
-  const isServe = command === 'serve';
-
-  return {
-    define: {
-      [isServe ? 'global' : '_global']: {},
-    },
-    root: 'src',
-    build: {
-      rollupOptions: {
-        main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, '__dirname/index.html'),
-        input: glob.sync('./src/*.html'),
+  if (command === 'serve') {
+    return {
+      define: {
+        global: {},
       },
-      outDir: '../dist',
-    },
-    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
-  };
+      root: 'src',
+      build: {
+        rollupOptions: {
+          input: glob.sync('./src/*.html'),
+        },
+        outDir: '../dist',
+      },
+      plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+    };
+  } else {
+    return {
+      define: {
+        _global: {},
+      },
+      root: 'src',
+      build: {
+        rollupOptions: {
+          input: glob.sync('./src/*.html'),
+        },
+        outDir: '../dist',
+      },
+      plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+    };
+  }
 });
