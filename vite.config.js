@@ -13,10 +13,12 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       rollupOptions: {
+        main: resolve(__dirname, 'index.html'),
+        nested: resolve(__dirname, '__dirname/index.html'),
         input: glob.sync('./src/*.html'),
       },
       outDir: '../dist',
     },
-    plugins: [injectHTML(), FullReload(['./src/**/**/**.html'])],
+    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });

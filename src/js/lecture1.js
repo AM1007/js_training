@@ -1,4 +1,4 @@
-import instruments from '../../products.json';
+import instruments from '../products.json';
 
 const list = document.querySelector('.js-list');
 
